@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Learning Kecerdasan Buatan</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Menggunakan Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <div class="logo"><i class="fas fa-brain"></i> Mata Kuliah Kecerdasan Buatan</div>
+        <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+        <nav id="navbar">
+            <ul>
+                <li><a href="#" onclick="showPage('home')" class="nav-link active">Beranda</a></li>
+                <li><a href="#" onclick="showPage('pertemuan1')" class="nav-link">Pert. 1: Pengenalan</a></li>
+                <li><a href="#" onclick="showPage('pertemuan2')" class="nav-link">Pert. 2: Masalah</a></li>
+                <li><a href="#" onclick="showPage('pertemuan3')" class="nav-link">Pert. 3: Blind Search</a></li>
+                <li><a href="#" onclick="showPage('pertemuan4')" class="nav-link">Pert. 4: Heuristic</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- BERANDA -->
+        <section id="home" class="page active">
+            <div class="hero-banner">
+                <h1>Selamat Datang di Materi Kecerdasan Buatan</h1>
+                <p>Program Studi S1 Teknik Informatika - Universitas Pamulang</p>
+                <button onclick="showPage('pertemuan1')" class="btn-start">Mulai Belajar</button>
+            </div>
+            
+            <div class="overview">
+                <h2>Rangkuman Materi</h2>
+                <div class="grid-container">
+                    <div class="card" onclick="showPage('pertemuan1')">
+                        <i class="fas fa-robot icon-large"></i>
+                        <h3>Dasar AI</h3>
+                        <p>Sejarah, Definisi, dan 4 Kategori Pendekatan AI.</p>
+                    </div>
+                    <div class="card" onclick="showPage('pertemuan2')">
+                        <i class="fas fa-project-diagram icon-large"></i>
+                        <h3>State Space</h3>
+                        <p>Memahami Initial State, Goal State, dan Operator.</p>
+                    </div>
+                    <div class="card" onclick="showPage('pertemuan3')">
+                        <i class="fas fa-search icon-large"></i>
+                        <h3>Blind Search</h3>
+                        <p>Pencarian Breadth-First Search (BFS) dan antrian.</p>
+                    </div>
+                    <div class="card" onclick="showPage('pertemuan4')">
+                        <i class="fas fa-map-marked-alt icon-large"></i>
+                        <h3>Heuristic Search</h3>
+                        <p>Algoritma A*, Hill Climbing, dan Best First Search.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PERTEMUAN 1 -->
+        <section id="pertemuan1" class="page">
+            <div class="content-header">
+                <h2>Pertemuan 1: Pengenalan Kecerdasan Buatan</h2>
+                <p class="subtitle">Memahami definisi, sejarah, dan teknik dasar AI</p>
+            </div>
+            
+            <article>
+                <h3>Apa itu Artificial Intelligence?</h3>
+                <p>AI adalah bidang ilmu komputer yang berfokus pada pengembangan sistem yang mampu melakukan tugas-tugas yang biasanya membutuhkan kecerdasan manusia, seperti belajar, memecahkan masalah, dan mengenali pola .</p>
+
+                <div class="info-box">
+                    <h4><i class="fas fa-users-cog"></i> 4 Kategori Pendekatan AI</h4>
+                    <ul>
+                        <li><strong>Thinking Humanly:</strong> Meniru cara berpikir manusia (cognitive modeling) .</li>
+                        <li><strong>Acting Humanly:</strong> Bertindak seperti manusia (contoh: Turing Test) .</li>
+                        <li><strong>Thinking Rationally:</strong> Berpikir menggunakan logika formal (logic-based) .</li>
+                        <li><strong>Acting Rationally:</strong> Bertindak rasional untuk mencapai hasil optimal (Intelligent Agent) .</li>
+                    </ul>
+                </div>
+
+                <h3>Teknik Dasar AI</h3>
+                <p>Klik pada setiap teknik di bawah ini untuk melihat penjelasannya:</p>
+                
+                <!-- Accordion Menu untuk Teknik Dasar -->
+                <div class="accordion-container">
+                    
+                    <!-- 1. Searching -->
+                    <div class="accordion-item" onclick="toggleAccordion('desc-searching', this)">
+                        <div class="accordion-header">
+                            <span>1. Searching (Pencarian)</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div id="desc-searching" class="accordion-content">
+                            <p><strong>Definisi:</strong> Teknik menemukan langkah-langkah sistematis untuk mencapai tujuan. AI menggunakan teknik ini untuk menjelajahi ruang solusi guna menemukan solusi terbaik dari banyak kemungkinan .</p>
+                            <p><strong>Contoh:</strong> Google Maps yang mencari rute tercepat dari satu lokasi ke lokasi lain .</p>
+                        </div>
+                    </div>
+
+                    <!-- 2. Reasoning -->
+                    <div class="accordion-item" onclick="toggleAccordion('desc-reasoning', this)">
+                        <div class="accordion-header">
+                            <span>2. Reasoning (Penalaran)</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div id="desc-reasoning" class="accordion-content">
+                            <p><strong>Definisi:</strong> Kemampuan AI untuk menarik kesimpulan baru dari pengetahuan yang sudah ada .</p>
+                            <p><strong>Contoh:</strong> Sistem Pakar Medis. Jika ada aturan "Jika demam + batuk maka flu", dan faktanya pasien demam dan batuk, maka sistem menyimpulkan pasien terkena flu .</p>
+                        </div>
+                    </div>
+
+                    <!-- 3. Planning -->
+                    <div class="accordion-item" onclick="toggleAccordion('desc-planning', this)">
+                        <div class="accordion-header">
+                            <span>3. Planning (Perencanaan)</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div id="desc-planning" class="accordion-content">
+                            <p><strong>Definisi:</strong> Teknik mendekomposisi masalah kompleks ke dalam sejumlah operasi sederhana. AI merencanakan serangkaian aksi untuk mencapai tujuan dengan mempertimbangkan keterbatasan dan kemungkinan hambatan.</p>
+                            <p><strong>Contoh:</strong> Robot perakitan mobil yang merencanakan urutan pemasangan komponen .</p>
+                        </div>
+                    </div>
+
+                    <!-- 4. Machine Learning -->
+                    <div class="accordion-item" onclick="toggleAccordion('desc-ml', this)">
+                        <div class="accordion-header">
+                            <span>4. Machine Learning (Pembelajaran Mesin)</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div id="desc-ml" class="accordion-content">
+                            <p><strong>Definisi:</strong> Teknik mengajarkan pola data kepada komputer untuk memperoleh pengetahuan. Terdiri dari <em>Supervised learning</em>, <em>Unsupervised learning</em>, dan <em>Reinforcement learning</em> .</p>
+                            <p><strong>Contoh:</strong> Rekomendasi film di Netflix atau deteksi spam pada Gmail.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+        </section>
+
+        <!-- PERTEMUAN 2 -->
+        <section id="pertemuan2" class="page">
+            <div class="content-header">
+                <h2>Pertemuan 2: Masalah, Ruang, dan Keadaan</h2>
+                <p class="subtitle">Analisis Studi Kasus dan Ruang Keadaan (State Space)</p>
+            </div>
+
+            <article>
+                <h3>Definisi Masalah dalam AI</h3>
+                <p>Masalah dalam AI didefinisikan sebagai suatu kondisi awal (Initial State) yang harus diselesaikan untuk mencapai kondisi tujuan (Goal State) .</p>
+                <div class="info-box">
+                    <h4>4 Komponen Masalah:</h4>
+                    <ol>
+                        <li><strong>Initial State:</strong> Titik awal permasalahan .</li>
+                        <li><strong>Goal State:</strong> Kondisi akhir yang diinginkan .</li>
+                        <li><strong>Operator (Actions):</strong> Aturan atau aksi yang mengubah keadaan.</li>
+                        <li><strong>Path Cost:</strong> Biaya atau efisiensi dari jalur solusi.</li>
+                    </ol>
+                </div>
+
+                <h3>Studi Kasus Interaktif</h3>
+                <p>Klik pada judul studi kasus di bawah untuk melihat detail tahapan penyelesaiannya:</p>
+
+                <div class="accordion-container">
+                    
+                    <!-- Studi Kasus 1: Water Jug -->
+                    <div class="accordion-item" onclick="toggleAccordion('case-waterjug', this)">
+                        <div class="accordion-header">
+                            <span><i class="fas fa-flask"></i> Studi Kasus 1: Masalah Ember Air (Water Jug)</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div id="case-waterjug" class="accordion-content">
+                            <div class="case-study">
+                                <div class="case-text">
+                                    <p><strong>Masalah:</strong> Diberikan Ember A (4 Liter) dan Ember B (3 Liter). Bagaimana cara mendapatkan tepat <strong>2 Liter</strong> air di Ember B tanpa alat ukur lain? .</p>
+                                    
+                                    <p><strong>Operator yang tersedia :</strong></p>
+                                    <ul class="small-list">
+                                        <li>1. Isi penuh ember A.</li>
+                                        <li>2. Isi penuh ember B.</li>
+                                        <li>3. Tuang A ke B sampai B penuh.</li>
+                                        <li>4. Tuang A ke B sampai A kosong.</li>
+                                        <li>5. Tuang B ke A sampai A penuh.</li>
+                                        <li>6. Tuang B ke A sampai B kosong.</li>
+                                        <li>7. Buang air dari A.</li>
+                                        <li>8. Buang air dari B.</li>
+                                    </ul>
+
+                                    <hr>
+                                    <p><strong>Langkah Penyelesaian (Solusi):</strong></p>
+                                    <ol style="margin-left: 20px;">
+                                        <li><strong>(A=0, B=0)</strong> : Kondisi Awal.</li>
+                                        <li><strong>(A=0, B=3)</strong> : Isi penuh ember B (Operator 2).</li>
+                                        <li><strong>(A=3, B=0)</strong> : Pindahkan air dari B ke A sampai B kosong (Operator 6).</li>
+                                        <li><strong>(A=3, B=3)</strong> : Isi penuh ember B lagi (Operator 2).</li>
+                                        <li><strong>(A=4, B=2)</strong> : Pindahkan air dari B ke A sampai A penuh (Operator 5).</li>
+                                        <li><strong>(A=0, B=2)</strong> : Buang semua air dari A (Operator 7). <strong>GOAL TERCAPAI</strong> (Sisa 2 liter di B).</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Studi Kasus 2: 8-Puzzle -->
+                    <div class="accordion-item" onclick="toggleAccordion('case-puzzle', this)">
+                        <div class="accordion-header">
+                            <span><i class="fas fa-th"></i> Studi Kasus 2: 8-Puzzle (3x3)</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div id="case-puzzle" class="accordion-content">
+                            <p><strong>Masalah:</strong> Mengurutkan angka acak menjadi berurutan sesuai Goal State.</p>
+                            
+                            <div class="grid-algorithms"> <!-- Menggunakan layout grid yang sudah ada di CSS -->
+                                <div class="algo-item">
+                                    <h4>Initial State </h4>
+                                    <pre>
+1  2  3
+7  4  6
+5  8  _
+                                    </pre>
+                                </div>
+                                <div class="algo-item">
+                                    <h4>Goal State </h4>
+                                    <pre>
+1  2  3
+4  5  6
+7  8  _
+                                    </pre>
+                                </div>
+                            </div>
+
+                            <p><strong>Operator :</strong></p>
+                            <ul class="small-list">
+                                <li>Geser kotak kosong ke Kanan.</li>
+                                <li>Geser kotak kosong ke Kiri.</li>
+                                <li>Geser kotak kosong ke Atas.</li>
+                                <li>Geser kotak kosong ke Bawah.</li>
+                            </ul>
+
+                            <hr>
+                            <p><strong>Contoh Tahapan Solusi :</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>Posisi Awal (Kosong di kanan bawah).</li>
+                                <li><strong>Geser kotak kosong ke Atas</strong> (Angka 6 turun).</li>
+                                <li><strong>Geser kotak kosong ke Kanan</strong> (Tidak bisa/Mentok? Asumsi logika slide: Menyesuaikan posisi 5 dan 8).</li>
+                                <li><strong>Geser kotak kosong ke Bawah</strong>.</li>
+                                <li><strong>Geser kotak kosong ke Kanan</strong>.</li>
+                            </ol>
+                            <p><em>Catatan: Solusi puzzle bergantung pada posisi awal ubin. Tujuan utamanya adalah mencocokkan pola Goal State.</em></p>
+                        </div>
+                    </div>
+
+                    <!-- Studi Kasus Tambahan: Petani -->
+                    <div class="accordion-item" onclick="toggleAccordion('case-petani', this)">
+                        <div class="accordion-header">
+                            <span><i class="fas fa-ship"></i> Studi Kasus 3: Petani, Serigala, Domba, Sayur</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div id="case-petani" class="accordion-content">
+                            <p><strong>Masalah:</strong> Menyeberangkan semua komponen ke seberang sungai. Perahu hanya muat Petani + 1 penumpang .</p>
+                            <p><strong>Aturan:</strong> Serigala tidak boleh berdua dengan Domba. Domba tidak boleh berdua dengan Sayur .</p>
+                            
+                            <p><strong>Langkah Penyelesaian :</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>Petani menyeberangkan <strong>Domba</strong>.</li>
+                                <li>Petani kembali <strong>sendirian</strong>.</li>
+                                <li>Petani menyeberangkan <strong>Sayur</strong> (atau Serigala).</li>
+                                <li>Petani kembali membawa <strong>Domba</strong> (agar Domba tidak dimakan Serigala/makan Sayur).</li>
+                                <li>Petani menyeberangkan <strong>Serigala</strong>.</li>
+                                <li>Petani kembali <strong>sendirian</strong>.</li>
+                                <li>Petani menyeberangkan <strong>Domba</strong> terakhir.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+        </section>
+
+        <!-- PERTEMUAN 3 -->
+        <section id="pertemuan3" class="page">
+            <div class="content-header">
+                <h2>Pertemuan 3: Breadth-First Search (BFS)</h2>
+                <p class="subtitle">Metode Pencarian Buta (Blind Search) Menggunakan Antrian</p>
+            </div>
+
+            <article>
+                <h3>Konsep Dasar Blind Search</h3>
+                <p>Blind Search (Pencarian Buta) atau <em>Uninformed Search</em> adalah metode pencarian solusi tanpa informasi tambahan mengenai seberapa jauh posisi saat ini ke tujuan . Algoritma ini hanya menjelajah ruang keadaan secara sistematis tanpa "tahu" jalur mana yang lebih menjanjikan.</p>
+
+                <h3>Detail Breadth-First Search (BFS)</h3>
+                <p>Klik poin-poin di bawah ini untuk mempelajari BFS secara mendalam:</p>
+
+                <div class="accordion-container">
+                    
+                    <!-- 1. Definisi & Karakteristik -->
+                    <div class="accordion-item" onclick="toggleAccordion('bfs-def', this)">
+                        <div class="accordion-header">
+                            <span>1. Definisi & Karakteristik BFS</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div id="bfs-def" class="accordion-content">
+                            <p><strong>Cara Kerja:</strong> BFS menjelajah ruang keadaan secara <strong>melebar (level demi level)</strong>. Ia akan mengevaluasi semua node pada level 1, kemudian lanjut ke semua node di level 2, dan seterusnya hingga solusi ditemukan .</p>
+                            <div class="info-box">
+                                <h4><i class="fas fa-layer-group"></i> Karakteristik Utama:</h4>
+                                <ul>
+                                    <li><strong>Struktur Data:</strong> Menggunakan <strong>QUEUE</strong> (FIFO - First In First Out) .</li>
+                                    <li><strong>Optimal:</strong> Menjamin menemukan solusi dengan jalur terpendek (jika biaya tiap langkah sama) .</li>
+                                    <li><strong>Complete:</strong> Dijamin menemukan solusi jika solusi memang ada.</li>
+                                </ul>
+                            </div>
+                            <div class="visual-tree">
+                                Level 0: [A]
+                                Level 1: [B] -> [C] -> [D]
+                                Level 2: [E] -> [F] ...
+                                (Node diproses berurutan dari kiri ke kanan per level)
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Algoritma / Proses Kerja -->
+                    <div class="accordion-item" onclick="toggleAccordion('bfs-algo', this)">
+                        <div class="accordion-header">
+                            <span>2. Langkah-Langkah Algoritma</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div id="bfs-algo" class="accordion-content">
+                            <p>Proses sistematis BFS adalah sebagai berikut [2]:</p>
+                            <ol style="margin-left: 20px;">
+                                <li>Masukkan <strong>Initial State</strong> (Node Akar) ke dalam antrian (Queue).</li>
+                                <li>Ulangi langkah berikut sampai antrian kosong atau Goal ditemukan:
+                                    <ul style="margin-top:5px;">
+                                        <li>Ambil node paling depan dari antrian.</li>
+                                        <li>Cek apakah node tersebut adalah <strong>Goal State</strong>?</li>
+                                        <li><strong>Jika YA:</strong> Berhenti, solusi ditemukan.</li>
+                                        <li><strong>Jika TIDAK:</strong> Bangkitkan semua anak (successor) dari node tersebut dan masukkan ke bagian <strong>belakang</strong> antrian.</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- 3. Studi Kasus: Water Jug dengan BFS -->
+                    <div class="accordion-item" onclick="toggleAccordion('bfs-water', this)">
+                        <div class="accordion-header">
+                            <span>3. Penerapan BFS: Water Jug (Ember Air)</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div id="bfs-water" class="accordion-content">
+                            <div class="case-study">
+                                <div class="case-text">
+                                    <p><strong>Masalah:</strong> Ember A (4L) dan Ember B (3L). Initial State (0,0). Goal State: Mendapatkan 2 Liter di Ember B (X, 2) .</p>
+                                    <p>BFS menemukan solusi dengan urutan operator: <strong>2 - 6 - 2 - 5</strong> .</p>
+                                    
+                                    <div class="step-process">
+                                        <div class="step">Start: (0,0)</div>
+                                        <div class="step">Op 2: Isi B Penuh &rarr; (0,3)</div>
+                                        <div class="step">Op 6: Tuang B ke A &rarr; (3,0)</div>
+                                        <div class="step">Op 2: Isi B Penuh &rarr; (3,3)</div>
+                                        <div class="step">Op 5: Tuang B ke A (smp penuh) &rarr; (4,2)</div>
+                                        <div class="step" style="background:var(--accent-color)">GOAL: 2 Liter di B</div>
+                                    </div>
+                                    <p><small><em>Catatan: BFS memeriksa banyak kemungkinan lain sebelum menemukan jalur ini, namun jalur ini adalah yang paling dangkal (sedikit langkah) yang ditemukan.</em></small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Studi Kasus: 8-Puzzle dengan BFS -->
+                    <div class="accordion-item" onclick="toggleAccordion('bfs-puzzle', this)">
+                        <div class="accordion-header">
+                            <span>4. Penerapan BFS: 8-Puzzle</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div id="bfs-puzzle" class="accordion-content">
+                            <p><strong>Masalah:</strong> Mengurutkan angka 1-8. BFS mengecek level demi level dari pohon pencarian.</p>
+                            <p>Contoh langkah solusi yang ditemukan BFS untuk kasus tertentu :</p>
+                            
+                            <div class="grid-algorithms">
+                                <div class="algo-item">
+                                    <h4>Langkah 1 (Initial)</h4>
+                                    <pre>
+1  2  3
+   4  6
+7  5  8
+                                    </pre>
+                                    <p>Posisi Awal</p>
+                                </div>
+                                <div class="algo-item">
+                                    <h4>Langkah 2 (Op. 3)</h4>
+                                    <pre>
+1  2  3
+7  4  6
+   5  8
+                                    </pre>
+                                    <p>Geser Atas</p>
+                                </div>
+                                <div class="algo-item">
+                                    <h4>Langkah 3 (Op. 1)</h4>
+                                    <pre>
+1  2  3
+7  4  6
+5     8
+                                    </pre>
+                                    <p>Geser Kanan</p>
+                                </div>
+                                <div class="algo-item highlight">
+                                    <h4>Langkah 4 (Op. 4)</h4>
+                                    <pre>
+1  2  3
+7  4  6
+5  8   
+                                    </pre>
+                                    <p>Geser Bawah (dst..)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+        </section>
+
+        <!-- PERTEMUAN 4 -->
+        <section id="pertemuan4" class="page">
+            <div class="content-header">
+                <h2>Pertemuan 4: Heuristic Search</h2>
+                <p class="subtitle">Pencarian Cerdas Menggunakan Informasi Tambahan (Heuristik)</p>
+            </div>
+
+            <article>
+                <h3>Konsep Heuristic Search</h3>
+                <p>Berbeda dengan Blind Search, metode ini menggunakan fungsi heuristik <code>h(n)</code> yang memberikan estimasi biaya dari suatu posisi ke tujuan. Tujuannya adalah mempercepat pencarian dan menghindari eksplorasi jalur yang tidak relevan .</p>
+
+                <p>Klik algoritma di bawah ini untuk melihat penjelasan detail dan cara kerjanya:</p>
+
+                <div class="accordion-container">
+                    
+                    <!-- 1. Generate and Test -->
+                    <div class="accordion-item" onclick="toggleAccordion('algo-gentest', this)">
+                        <div class="accordion-header">
+                            <span>1. Generate and Test</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div id="algo-gentest" class="accordion-content">
+                            <p><strong>Definisi:</strong> Metode paling dasar yang menggabungkan pembuatan solusi kandidat dengan pengujian. Algoritma ini bekerja dengan membuat solusi yang mungkin (secara sistematis atau acak) lalu memeriksa apakah itu memenuhi syarat .</p>
+                            
+                            <div class="step-process">
+                                <div class="step">1. Generate (Buat Solusi)</div>
+                                <div class="step">2. Test (Uji Solusi)</div>
+                                <div class="step">3. Jika Benar, Stop. Jika Salah, Ulangi.</div>
+                            </div>
+                            
+                            <div class="info-box">
+                                <p><strong>Contoh:</strong> Mencari rute A ke J. Sistem membangkitkan jalur <em>A-C-D-J</em> (Biaya 6) dan membandingkannya dengan jalur lain seperti <em>A-B-E-H-I-J</em> (Biaya 16). Jalur dengan biaya terendah dipilih .</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Hill Climbing -->
+                    <div class="accordion-item" onclick="toggleAccordion('algo-hill', this)">
+                        <div class="accordion-header">
+                            <span>2. Hill Climbing (Pendakian Bukit)</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div id="algo-hill" class="accordion-content">
+                            <p><strong>Konsep:</strong> Analogi seperti mendaki bukit dalam kabut tebal. Algoritma hanya melihat langkah terdekat dan selalu memilih langkah yang menanjak (nilai lebih baik) tanpa mengetahui apakah itu puncak tertinggi (Global Optimum) atau hanya puncak lokal .</p>
+                            
+                            <div class="grid-algorithms">
+                                <div class="algo-item">
+                                    <h4>Simple Hill Climbing</h4>
+                                    <p>Memeriksa tetangga satu per satu. Langsung pindah ke tetangga <strong>pertama</strong> yang memiliki nilai lebih baik daripada keadaan sekarang.</p>
+                                </div>
+                                <div class="algo-item highlight">
+                                    <h4>Steepest-Ascent Hill Climbing</h4>
+                                    <p>Mengevaluasi <strong>semua</strong> tetangga terlebih dahulu, lalu memilih satu yang <strong>paling baik</strong> (paling curam kenaikannya) di antara semuanya.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Greedy Best First Search -->
+                    <div class="accordion-item" onclick="toggleAccordion('algo-greedy', this)">
+                        <div class="accordion-header">
+                            <span>3. Greedy Best First Search</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div id="algo-greedy" class="accordion-content">
+                            <p><strong>Definisi:</strong> Varian pencarian heuristik yang bersifat "rakus" (*greedy*). Algoritma ini selalu memilih node yang tampaknya paling dekat dengan tujuan berdasarkan fungsi heuristik saja, tanpa memperdulikan biaya yang sudah dikeluarkan dari start.</p>
+                            
+                            <div class="formula">f(n) = h(n)</div>
+                            <ul class="small-list">
+                                <li><strong>h(n):</strong> Estimasi jarak dari node n ke Goal.</li>
+                            </ul>
+
+                            <p><strong>Cara Kerja:</strong> Node dengan nilai h(n) terkecil akan selalu dievaluasi/dibuka terlebih dahulu dari antrian (OPEN list) .</p>
+                        </div>
+                    </div>
+
+                    <!-- 4. Algoritma A* (A-Star) -->
+                    <div class="accordion-item" onclick="toggleAccordion('algo-astar', this)">
+                        <div class="accordion-header">
+                            <span>4. Algoritma A* (A-Star)</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div id="algo-astar" class="accordion-content">
+                            <p><strong>Definisi:</strong> Algoritma paling populer dan optimal untuk pencarian jalur (*pathfinding*). A* menggabungkan biaya sebenarnya yang sudah ditempuh dengan estimasi biaya ke tujuan.</p>
+                            
+                            <div class="formula">f(n) = g(n) + h(n)</div>
+                            
+                            <div class="grid-algorithms" style="grid-template-columns: 1fr 1fr;">
+                                <div class="algo-item">
+                                    <h4>g(n)</h4>
+                                    <p>Biaya aktual dari node <strong>Start</strong> ke node <strong>n</strong>.</p>
+                                </div>
+                                <div class="algo-item">
+                                    <h4>h(n)</h4>
+                                    <p>Estimasi biaya heuristik dari node <strong>n</strong> ke <strong>Goal</strong>.</p>
+                                </div>
+                            </div>
+
+                            <p style="margin-top:15px;"><strong>Langkah Kerja:</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>Masukkan node awal ke OPEN list.</li>
+                                <li>Pilih node <em>n</em> di OPEN dengan nilai <strong>f(n) terkecil</strong>.</li>
+                                <li>Jika <em>n</em> adalah Goal, berhenti (Solusi ditemukan).</li>
+                                <li>Jika bukan, pindahkan ke CLOSED dan bangkitkan penerusnya (successor) .</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mahasiswa Teknik Informatika.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
